@@ -1,13 +1,14 @@
-import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
-const hello = <div>Hello, World</div>;
-const goodbye = React.createElement("div", null, "Goodbye, World");
-
-function App() {
-  return <div>
-    {hello}
-    {goodbye}
-  </div>;
+export default function App() {
+  return (
+    <div>
+      <h1>My App</h1>
+      <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
 }
-
-export default App;
