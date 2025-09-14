@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useOutletContext } from 'react-router-dom';
 
 export function Song() {
   return (
@@ -19,9 +19,12 @@ export function Movie() {
 }
 
 export default function About() {
+  const { logined } = useOutletContext();
+
   return (
     <div>
       <h2>About Page</h2>
+      <p>로그인 상태 : {logined ? '로그인' : '로그아웃'}</p>
       <nav>
         <NavLink to="song">노래</NavLink> | <NavLink to="movie">영화</NavLink> |{' '}
         <NavLink to="/">홈으로</NavLink>
