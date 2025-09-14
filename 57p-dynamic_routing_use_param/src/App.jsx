@@ -3,9 +3,6 @@ import { useState } from 'react';
 import './App.css';
 
 export default function App() {
-  const handleChange = (e) => {
-    setLogged(e.target.checked);
-  };
 
   return (
     <div>
