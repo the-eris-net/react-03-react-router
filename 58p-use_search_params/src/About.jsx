@@ -3,6 +3,7 @@ import {
   Outlet,
   useParams,
   useNavigate,
+  useSearchParams,
 } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -26,11 +27,19 @@ export function Movie() {
 
 export function Other() {
   const { keyword } = useParams();
-  
+  const [query] = useSearchParams();
+  const queryObj = Object.fromEntries(query);
+
   return (
     <div>
       <h2>{keyword}</h2>
-      <p>매칭되는 정보가 없습니다</p>
+      <p>
+        매칭되는 정보가 없습니다
+        <br />
+        입력된 id : {query.get('id')}
+        <br />
+      </p>
+      {JSON.stringify(queryObj)}
     </div>
   );
 }
