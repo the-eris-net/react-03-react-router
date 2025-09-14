@@ -29,7 +29,7 @@ export default function About() {
 
   if (!logined) {
     setTimeout(() => {
-      navigate('/');
+      navigate('/', { state: { message: '로그인 후 이용 가능합니다.' } });
     }, 0);
   }
 
