@@ -1,4 +1,9 @@
-import { NavLink, Outlet, useOutletContext, Navigate } from 'react-router-dom';
+import {
+  NavLink,
+  Outlet,
+  useOutletContext,
+  useNavigate,
+} from 'react-router-dom';
 
 export function Song() {
   return (
@@ -20,9 +25,12 @@ export function Movie() {
 
 export default function About() {
   const { logined } = useOutletContext();
+  const navigate = useNavigate();
 
-  if(!logined) {
-    return (<Navigate to="/" />);
+  if (!logined) {
+    setTimeout(() => {
+      navigate('/');
+    }, 0);
   }
 
   return (
