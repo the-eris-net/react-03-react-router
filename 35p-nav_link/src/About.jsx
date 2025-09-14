@@ -18,13 +18,25 @@ export function Movie() {
   );
 }
 
+function getActiveStyle({isActive}) {
+  return {
+    backgroundColor: isActive ? "orange" : "inherit"
+  };
+}
+
 export default function About() {
   return (
     <div>
       <h2>About Page</h2>
       <nav>
-        <NavLink to="song">노래</NavLink> | {" "}
-        <NavLink to="movie">영화</NavLink> | {" "}
+        <NavLink to="song"
+          className={({isActive}) => (isActive ? "active-second" : "")}
+          style={getActiveStyle}>
+            노래</NavLink> | {" "}
+        <NavLink to="movie"
+          className={({isActive}) => (isActive ? "active-second" : "")}
+          style={getActiveStyle}>
+            영화</NavLink> | {" "}
         <NavLink to="/">홈으로</NavLink>
       </nav>
       <Outlet />
