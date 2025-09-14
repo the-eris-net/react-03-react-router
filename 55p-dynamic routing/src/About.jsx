@@ -1,6 +1,8 @@
 import {
   NavLink,
   Outlet,
+  useOutletContext,
+  useNavigate,
 } from 'react-router-dom';
 
 export function Song() {
@@ -22,6 +24,14 @@ export function Movie() {
 }
 
 export default function About() {
+  const { logined } = useOutletContext();
+  const navigate = useNavigate();
+
+  if (!logined) {
+    setTimeout(() => {
+      navigate('/', { state: { message: '로그인 후 이용 가능합니다.' } });
+    }, 0);
+  }
 
   return (
     <div>
