@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { Routes, Route, MemoryRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import App from './App.jsx';
 import Home from './Home.jsx';
 import About, { Song, Movie, Other } from './About.jsx';
@@ -7,7 +7,7 @@ import { StrictMode } from 'react';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MemoryRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
@@ -18,6 +18,6 @@ createRoot(document.getElementById('root')).render(
           </Route>
         </Route>
       </Routes>
-    </MemoryRouter>
+    </HashRouter>
   </StrictMode>
 );
