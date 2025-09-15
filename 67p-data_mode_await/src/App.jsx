@@ -1,8 +1,8 @@
-import { Outlet, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { Outlet, NavLink, useNavigation } from 'react-router-dom';
 import './App.css';
 
 export default function App() {
+  const navigation = useNavigation();
 
   return (
     <div>
@@ -10,9 +10,11 @@ export default function App() {
       <br />
       <nav>
         <NavLink to="/">Home</NavLink> | {" "}
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about">About</NavLink> | {" "}
+        <NavLink to="/external">External</NavLink>
       </nav>
-      <Outlet  />
+
+      {navigation.state === 'loading' ? <div>Loading...</div> : <Outlet />}
     </div>
   );
 }
